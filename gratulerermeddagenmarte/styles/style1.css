@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  background-color: #ffb4fb;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.page {
+  position: relative; /* legg til */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  grid-column: 1 / 4;
+  margin: 10px 0 20px;
+  font-size: clamp(28px, 5vw, 64px);
+  font-weight: 700;
+}
+
+.left, .right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.balloons {
+  font-size: 32px;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+}
+
+.cake {
+  width: 150px;
+}
+
+img {
+  width: 180px;
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.footer-text {
+  grid-column: 1 / 4;
+  margin: 25px 0 10px;
+  font-size: 28px;
+  color: crimson;
+}
+
+.corner-image {
+  position: absolute; /* endret fra fixed */
+  bottom: 15px;
+  right: 15px;
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 100;
+}
+
+/* nytt: øverst til venstre */
+.corner-image-top-left {
+  /* bruk fixed så bildet alltid ligger øverst i vinduet */
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 120px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 9999;
+}
+
+#bg-music {
+  display: none;
+}
+
+.play-music-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10001;
+  display: none; /* JS viser den ved behov */
+  background: linear-gradient(180deg,#fff7ee,#ffd7a6);
+  color: #8B0000;
+  border: 3px solid rgba(139,0,0,0.18);
+  padding: 12px 18px;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 18px;
+  border-radius: 999px; /* pill */
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25), inset 0 -2px 0 rgba(255,255,255,0.18);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms;
+  opacity: 1;
+  animation: pulse 1800ms ease-in-out infinite; /* raskere og mer markant */
+}
+
+.play-music-btn:hover {
+  transform: translateY(-6px) scale(1.04); /* høyere hopp ved hover */
+  box-shadow: 0 12px 34px rgba(0,0,0,0.28), inset 0 -2px 0 rgba(255,255,255,0.22);
+}
+
+.play-music-btn:focus {
+  /* behold svart outline ved fokus, men legg på ekstra glød */
+  outline-offset: 2px;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.28), 0 0 0 6px rgba(0,0,0,0.12);
+}
+
+@keyframes pulse {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.04); box-shadow: 0 18px 48px rgba(0,0,0,0.34), inset 0 -2px 0 rgba(255,255,255,0.22); }
+  100% { transform: translateY(0) scale(1); }
+}
