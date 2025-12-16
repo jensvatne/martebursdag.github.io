@@ -77,7 +77,7 @@ img {
   position: fixed;
   top: 15px;
   left: 15px;
-  width: 120px;
+  width: 140px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   z-index: 9999;
@@ -122,4 +122,39 @@ img {
   0% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-10px) scale(1.04); box-shadow: 0 18px 48px rgba(0,0,0,0.34), inset 0 -2px 0 rgba(255,255,255,0.22); }
   100% { transform: translateY(0) scale(1); }
+}
+
+.img-wrap {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  max-width: 90%;
+  border-radius: 15px;
+  overflow: hidden;
+  /* fjernet dobbel skygge her */
+  box-shadow: none;
+}
+.img-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* enkel, jevn skygge på selve bildet */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  border-radius: inherit;
+}
+
+.img-caption {
+  position: absolute;
+  left: 50%;
+  top: 8px; /* tekst øverst på bildet */
+  transform: translateX(-50%);
+  z-index: 10; /* sørg for at teksten ligger over bildet */
+  background: transparent; /* ingen bakgrunn */
+  color: #00000048;
+  padding: 0; /* ingen ekstra padding slik at teksten står "inni" bildet */
+  font-size: 14px;
+  border-radius: 8px;
+  pointer-events: none;
+  white-space: nowrap;
+
 }
